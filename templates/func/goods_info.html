@@ -1,0 +1,63 @@
+{% extends "common/layout.html" %}
+{% block content %}
+    <div class="row">
+        <div class="page-header">
+            <h1>详情<a class="pull-right" href="{{ buildUrl('/logged/goods') }}">返回列表</a></h1>
+        </div>
+        <div class="row news_info_del_wrap">
+            <div class="col-lg-4">
+                <text style="font-size: 15px;font-weight: bold;">封面图:</text>
+                <p><img class="img-thumbnail"
+                        src="{{ info.picture1 | safe }}">
+                    <a target="_blank"
+                       href="{{ info.picture1 | safe }}">查看原图</a>
+                </p>
+            </div>
+            <div class="col-lg-8">
+                <div class="panel panel-default goods_del_wrap">
+
+                    <div class="panel-heading">数据内容</div>
+                    <div class="panel-body">
+                        <p style="font-weight: bold;">文章标题：{{ info.title | safe }}</p>
+                        <p>修改时间：{{ info.created_date | safe }}</p>
+                        <p>品牌车型：<span style="font-weight: bold;">{{ info.brand | safe }} {{ info.arctic | safe }}</span>
+                        </p>
+                        <p>价格：<span style="font-weight: bold;">{{ info.price | safe }}</span></p>
+                        <p>上牌时间 | 表显里程：<span
+                                style="font-weight: bold">{{ info.regist_date | safe }} | {{ info.mileage | safe }}KM</span>
+                        </p>
+                        <p>车牌归属地 | 排放标准：<span
+                                style="font-weight: bold;">{{ info.cars_local | safe }} | {{ info.emissions | safe }}</span>
+                        </p>
+                        <p>挡位：<span style="font-weight: bold">{{ info.gear | safe }}</span></p>
+                        <p>车况描述：{{ info.describe | safe }}</p>
+                        <p>图文链接：{{ info.img_desc | safe }}</p>
+                        <p>图片：</p>
+                        <p>
+                            <img style="width: 30%;height: 30%;" src="{{ info.picture1 | safe }}">
+                            <img style="width: 30%;height: 30%;" src="{{ info.picture2 | safe }}">
+                            <img style="width: 30%;height: 30%;" src="{{ info.picture3 | safe }}">
+                        </p>
+                        <p>
+                            <img style="width: 30%;height: 30%;" src="{{ info.picture4 | safe }}">
+                            <img style="width: 30%;height: 30%;" src="{{ info.picture5 | safe }}">
+                            <img style="width: 30%;height: 30%;" src="{{ info.picture6 | safe }}">
+                        </p>
+                    </div>
+                    <ul class="list-group">
+                        <li class="list-group-item">
+{#                            <a class="btn btn-default" href="#" role="button">修改</a>#}
+                            <a class="btn btn-primary do_goods_del" role="button" id="{{info.id}}">删除</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}
+
+{% block js %}
+    <script src="{{ buildStaticUrl('/js/func/goods_del.js') }}"/>
+{% endblock %}

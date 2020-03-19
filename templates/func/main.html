@@ -1,0 +1,38 @@
+{% extends "common/layout.html" %}
+
+{% block main_page %}
+
+{% endblock %}
+
+{% block content %}
+
+
+<div>
+
+
+    <div class="col-lg-8 col-lg-offset-2" style="margin-top: 100px;">
+        <div class="panel panel-primary">
+            <div class="panel-heading" style="font-weight: bold">资讯文章</div>
+            <div style="margin-top: 20px;margin-bottom: 20px;">
+
+                <p>当前共有资讯文章 <span style="color: #2aabd2;font-weight: bold">{{ numbers.news_num | safe }}</span> 条</p>
+                <p>最后一次操作由管理员 <span style="color: #2aabd2;font-weight: bold">{{current_user.login_name}}</span> 完成</p>
+            </div>
+        </div>
+        <div class="panel panel-primary" style="margin-top: 100px">
+            <div class="panel-heading">
+                <h3 class="panel-title" style="font-weight: bold">商城</h3>
+            </div>
+            <div style="margin-top: 20px;margin-bottom: 20px;">
+                <p>当前共有车源 <span style="color: #2aabd2;font-weight: bold">{{ numbers.cars_num | safe }}</span> 条</p>
+                <p>最后一次操作由管理员 <span style="color: #2aabd2;font-weight: bold">{{current_user.login_name}}</span> 完成</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
+{% block js %}
+
+{% endblock %}}

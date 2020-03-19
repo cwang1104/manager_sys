@@ -1,0 +1,112 @@
+{% extends "common/layout.html" %}
+
+{% block content %}
+    <div>
+        <div class="panel panel-default col-lg-10 col-lg-offset-1">
+            <div class="panel-heading">商品添加</div>
+            <div class="panel-body goods_add_wrap">
+                <div class="col-lg-offset-1">
+                    <div class="form-inline">
+                        <div class="form-group">
+                            <label for="title">商品标题:</label>
+                            <input type="text" class="form-control" id="title" name="title"
+                                   placeholder="例:大众 迈腾 2016款 1.8TSI 智享领先型">
+
+                        </div>
+                        <div class="form-group">
+                            <label for="brand">品牌:</label>
+                            <input type="text" class="form-control" id="brand" name="brand"
+                                   placeholder="例:宝马">
+                        </div>
+                        <div class="form-group">
+                            <label for="arctic">车型:</label>
+                            <input type="text" class="form-control" id="arctic" name="arctic"
+                                   placeholder="例:2016款 1.8TSI 智享领先型">
+                        </div>
+                    </div>
+                    <br>
+                    <div class="form-inline">
+                        <div class="form-group">
+                            <label for="regist_date">上牌年月:</label>
+                            <input type="text" class="form-control" id="regist_date" name="regist_date"
+                                   placeholder="例:2020年2月">
+                        </div>
+                        <div class="form-group">
+                            <label for="mileage">表显里程[km]:</label>
+                            <input type="text" class="form-control" id="mileage" name="mileage"
+                                   placeholder="例:10000">
+                        </div>
+                        <div class="form-group">
+                            <label for="gear">挡位:</label>
+                            <input type="text" class="form-control" id="gear" name="gear"
+                                   placeholder="自动/手动">
+                        </div>
+                    </div>
+                    <br>
+                    <div class="form-inline">
+                        <div class="form-group">
+                            <label for="emissions">排放标准:</label>
+                            <input type="text" class="form-control" id="emissions" name="emissions"
+                                   placeholder="例:国四">
+                        </div>
+                        <div class="form-group">
+                            <label for="price">价格[万]:</label>
+                            <input type="text" class="form-control" id="price" name="price"
+                                   placeholder="例:11.2">
+                        </div>
+                        <div class="form-group">
+                            <label for="cars_local">车牌归属地:</label>
+                            <input type="text" class="form-control" id="cars_local" name="cars_local"
+                                   placeholder="例:四川成都">
+                        </div>
+                    </div>
+                    <br>
+
+
+                    <div class="form-group">
+                        <label for="describe">车况描述:</label>
+                        <input type="text" class="form-control" id="describe" name="describe">
+                    </div>
+                    <div class="form-group">
+                        <label for="img_desc">图文链接:</label>
+                        <input type="text" class="form-control" id="img_desc" name="img_desc" placeholder="添加图文链接">
+                    </div>
+                    <div class="form-group">
+                        <label for="picture1">图1链接:</label>
+                        <input type="text" class="form-control" id="picture1" name="picture1" placeholder="至少添加一张照片">
+                    </div>
+                    <div class="form-group">
+                        <label for="picture2">图2链接:</label>
+                        <input type="text" class="form-control" id="picture2" name="picture2">
+                    </div>
+                    <div class="form-group">
+                        <label for="picture3">图3链接:</label>
+                        <input type="text" class="form-control" id="picture3" name="picture3">
+                    </div>
+                    <div class="form-group">
+                        <label for="picture4">图4链接:</label>
+                        <input type="text" class="form-control" id="picture4" name="picture4">
+                    </div>
+                    <div class="form-group">
+                        <label for="picture5">图5链接:</label>
+                        <input type="text" class="form-control" id="picture5" name="picture5">
+                    </div>
+                    <div class="form-group">
+                        <label for="picture6">图6链接:</label>
+                        <input type="text" class="form-control" id="picture6" name="picture6">
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-10">
+                            <button type="submit" class="btn btn-default do-goods_add">提交</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+{% block js %}
+<script src="{{buildStaticUrl('/js/func/goods_add.js')}}"></script>
+{% endblock %}

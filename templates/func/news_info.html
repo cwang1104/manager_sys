@@ -1,0 +1,45 @@
+{% extends "common/layout.html" %}
+{% block content %}
+    <div class="row">
+        <div class="page-header">
+            <h1>详情<a class="pull-right" href="{{ buildUrl('/logged/news') }}">返回列表</a></h1>
+        </div>
+        <div class="row news_info_del_wrap">
+            <div class="col-lg-4">
+                <text style="font-size: 15px;font-weight: bold;">封面图:</text>
+                <p><img class="img-thumbnail"
+                        src="{{ info.news_img | safe }}">
+                    <a target="_blank"
+                       href="{{ info.news_img | safe }}">查看原图</a></p>
+            </div>
+            <div class="col-lg-8">
+                <div class="panel panel-default">
+
+                    <div class="panel-heading">数据内容</div>
+                    <div class="panel-body">
+                        <p>文章标题：{{ info.news_title | safe }}</p>
+                        <p>修改时间：{{ info.created_date | safe }}</p>
+                        <p>简介：{{ info.news_desc | safe }}</p>
+                        <p>封面图地址：{{ info.news_img | safe }}</p>
+                        <p>文章地址：{{ info.news_src | safe }}</p>
+                    </div>
+
+
+                    <ul class="list-group">
+                        <li class="list-group-item">
+
+                                {#                            <a class="btn btn-default" href="#" role="button">修改</a>#}
+                                <a class="btn btn-primary do_news_info_del" id="{{ info.id }}" role="button">删除</a>
+
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+{% block js %}
+    <script src="{{ buildStaticUrl('/js/func/news_del.js') }}"/>
+{% endblock %}

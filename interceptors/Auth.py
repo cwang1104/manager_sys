@@ -1,0 +1,58 @@
+# -*- coding: utf-8 -*-
+from application import app
+from flask import request, g,session,redirect
+from common.models.user import User
+from common.libs.UserService import UserService
+from common.libs.UrlManager import UrlManger
+
+
+@app.before_request
+def before_request():
+    app.logger.info("--------before_request--------")
+    user_info = check_login()
+    app.logger.info(user_info)
+    g.current_user = None
+    if user_info:
+        g.current_user = user_info
+    # if request.path in ['/member/login', '/member/reg','/']:  # 如果登录的路由是注册和登录就返会none
+    #     #     return None
+    #     # # 获取用户登录信息
+    #     # if not user_info:  # 没有登录就自动跳转到登录页面去
+    #     #     return redirect("/")
+
+    return
+
+
+@app.after_request
+def after_request(response):
+    app.logger.info("--------after_request--------")
+    return response
+
+
+'''
+判断用户是否登录
+'''
+
+
+def check_login():
+    cookies = request.cookies
+    cookie_name = app.config['AUTH_COOKIE_NAME']
+    auth_cookie = cookies[cookie_name] if cookie_name in cookies else None
+    if auth_cookie is None:
+        return False
+    auth_info = auth_cookie.split("#")
+    if len(auth_info) != 2:
+        return False
+
+    try:
+        user_info = User.query.filter_by(id=auth_info[1]).first()
+    except Exception:
+        return False
+
+    if user_info is None:
+        return False
+
+    if auth_info[0] != UserService.geneAuthCode(user_info):
+        return False
+
+    return user_info

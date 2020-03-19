@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>小程序后台管理系统</title>
+    <link rel="stylesheet" href="{{buildStaticUrl('/plugins/bootstrap_v3/css/bootstrap.min.css')}}">
+</head>
+<body>
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" >小程序后台管理系统</a>
+        </div>
+
+
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+
+
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+
+                <li><a href="{{ buildUrl('/member/login')}}">登录</a></li>
+                <li><a href="{{ buildUrl('/member/reg')}}">注册</a></li>
+
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container" style="min-height: 600px" ;>
+    {% block content %} {% endblock %}
+</div>
+
+
+<footer class="text-center ">
+    王傈 3120160307240 @2020.6 汽车与交通学院 汽车服务工程
+</footer>
+
+<script src="{{buildStaticUrl('/plugins/jquery.min.js')}}"></script>
+<script src="{{buildStaticUrl('/plugins/bootstrap_v3/js/bootstrap.min.js')}}"></script>
+<script src="{{buildStaticUrl('/plugins/layer/layer.js')}}"></script>
+<script src="{{buildStaticUrl('/js/common.js')}}"></script>
+{% block js %} {% endblock %}
+</body>
+</html>
